@@ -21,9 +21,9 @@
 ```java -jar ~/tools/Notung-3.0-beta/Notung-3.0-beta.jar -g XP_001619085.2.r50.ufboot.midpoint.treefile.reconciled   -s species.tre --reconcile --speciestag prefix  --treeoutput newick --nolosses ```
 ## Unroot tree for alternative tree
 ```gotree unroot -i XP_001619085.2.r50.ufboot.midpoint.treefile.rearrange.0.reconciled.reconciled -o XP_001619085.2.r50.ufboot.unrooted.treefile.rearrange```
-## This command tells us to combine the treefiles two files into one, alternative trees file.
+## Concatenation to combine the two treefiles into one, alternative trees file.
 ``` cat XP_001619085.2.r50.ufboot.treefile XP_001619085.2.r50.ufboot.unrooted.treefile.rearrange > XP_001619085.r50.alternativetrees ```
-## This command produces our second optimal tree with the  -z flag signifying to use this file. The -au flag tells iqtree to run an approximately unbiased topological test. the -zb flag tells iqtree to run X amount of bootstrap replicas for the approximately unbiased test, here it is 10,000. The -te flag specifies which file iqtree will use to set model parameters.
+## Produces our second optimal tree with the  -z flag signifying to use this file. The -au flag tells iqtree to run an approximately unbiased topological test. the -zb flag tells iqtree to run X amount of bootstrap replicas for the approximately unbiased test, here it is 10,000. The -te flag specifies which file iqtree will use to set model parameters.
 ``` iqtree -s XP_001619085.2.blastp.detail.filtered.aligned.fas -z XP_001619085.r50.alternativetrees -au -zb 10000 --prefix DSCAM_altTrees -m LG+F+R5 -nt 2 -te XP_001619085.2.r50.ufboot.treefile ```
 ## IPRSCAN of unaligned protein sequence to obtain domains found in the sequence
 ```iprscan5   --email jeremy.diaz@stonybrook.edu  --multifasta --useSeqId --sequence   XP_001619085.2.blastp.detail.filtered.fas```
