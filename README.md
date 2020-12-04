@@ -33,4 +33,6 @@
 ```grep Pfam XP_001619085.2.domains.all.tsv > XP_001619085.2.domains.pfam.tsv```
 ##  Rearrangement of IPRSCAN output to use Evolview to map domains next to their corresponding protein sequence 
 ```awk 'BEGIN{FS="\t"} {print $1"\t"$3"\t"$7"@"$8"@"$5}' XP_001619085.2.domains.pfam.tsv | datamash -sW --group=1,2 collapse 3 | sed 's/,/\t/g' | sed 's/@/,/g' > XP_001619085.2.domains.pfam.evol.tsv```
-
+# The 1st optimal tree is the midpoint-rooted tree generated in Notung that shows duplication events in the ancestors of Nematostella vectensis, Stongylocentrotus purpuratus, Homo sapiens, and Drosophila melanogaster with bootstrap supports of 100.0 in each ancestor for the clades with bootstrap replicas = 1000.
+# The 2nd optimal tree is the rearranged reconciled phylogenetic DSCAM gene tree 
+# XP_001619085.2 lab 9 evolview tree.png is figure 3 shows the domains on their corresponding proteins.
